@@ -1,0 +1,20 @@
+{
+  "name": "chat-room-app",
+  "version": "1.0.0",
+  "description": "mongodb+srv://chatroom123:<password>@cluster0.r2bb3.mongodb.net/test",
+  "main": "index.js",
+  "scripts": {
+    "devStart":"nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.5"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.6"
+  }
+}
