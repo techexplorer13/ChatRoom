@@ -4,7 +4,7 @@ require('dotenv').config()
 
 const express =require('express');
 const app=express()
-const userRoutes=require('./src/routes/users')
+const userRoutes=require('./src/routes/usercontroller')
 const db=require('./src/server/db')
 
 app.use(express.json())
