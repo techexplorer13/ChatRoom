@@ -1,25 +1,39 @@
-<form>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-item  class="ion-no-padding">
-          <ion-label position="floating">UserName</ion-label>
-          <ion-input></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item  class="ion-no-padding">
-          <ion-label position="floating">Password</ion-label>
-          <ion-input></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class="ion-text-center" style="padding-top: 7%;">
-        <ion-button shape="round">Login</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</form>
+<ion-header>
+  <ion-title>
+    <ion-buttons>
+      <ion-button (click)="back()">
+      <ion-icon name="arrow-back-outline" size="medium"></ion-icon>
+    </ion-button>
+    </ion-buttons>
+  </ion-title>
+</ion-header>
+
+<ion-content>
+  <form>
+    <ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item class="ion-no-padding">
+              <ion-label position="floating">UserName</ion-label>
+              <ion-input></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item class="ion-no-padding">
+              <ion-label position="floating">Password</ion-label>
+              <ion-input></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-center" style="padding-top: 7%;">
+            <ion-button shape="round">Login</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </form>
+</ion-content>
