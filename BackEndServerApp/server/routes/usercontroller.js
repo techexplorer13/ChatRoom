@@ -11,6 +11,7 @@ const authenticate = require('../utility/utility')
 
 //Creating one user
 router.post('/', async (req, res) => {
+
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10)
         const users = new user({
