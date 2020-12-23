@@ -12,4 +12,8 @@ export class LoginregService {
   public register(user:any):Observable<any>{
     return this.http.post('http://localhost:3000/users',user);
   }
+
+  public login(loginInfo:any):Observable<any>{
+    return this.http.post('http://localhost:3000/users/login',loginInfo);
+  }
 }

@@ -45,7 +45,7 @@ export class LoginRegComponent implements OnInit {
       buttons: ['OK']
     });
 
-    await alert.present();
+    alert.present();
     alert.onDidDismiss().then(()=>{
       this.navCtrl.navigateForward('reglogin/login')
     })

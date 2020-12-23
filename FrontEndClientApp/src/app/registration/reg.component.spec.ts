@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { LoginRegComponent } from './login-reg.component';
+import { LoginRegComponent } from './reg.component';
 
 describe('LoginRegComponent', () => {
   let component: LoginRegComponent;

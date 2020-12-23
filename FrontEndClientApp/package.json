@@ -26,7 +26,8 @@
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^5.0.0",
     "ngx-popper": "^7.0.0",
-    "popper.js": "^1.16.1"
+    "popper.js": "^1.16.1",
+    "rxjs": "^6.6.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1000.0",
