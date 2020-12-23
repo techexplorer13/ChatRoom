@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginRegComponent } from './registration/reg.component';
 import { LoginComponent } from './registration/login/login.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
     path: 'reglogin',
     children: [{
       path: 'login',
+      canActivate:[AuthGuard],
       component: LoginComponent
     },
     { 

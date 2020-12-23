@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
     try {
         if (await bcrypt.compare(req.body.password, userMdb.password)) {
             //if the authentication is successful generate a jwt token
-            const access_token = jwt.sign(jwtUserJson, process.env.ACCESS_TOKEN_SECRET)
+            const access_token = jwt.sign(jwtUserJson, process.env.ACCESS_TOKEN_SECRET,{expiresIn : "15s"})
             res.status(200).json({ access_token: access_token })
         } else {
             res.send("Not A Valid User")
@@ -51,8 +51,8 @@ router.post('/login', async (req, res) => {
 });
 
 
-router.post('/getUserInfo',authenticate,(req,res)=>{
-
-    res.json("good")
+router.post('/getUserAuthentication', (req,res,next)=>{
+    authenticate(res,req,next);
 })
+
 module.exports = router 

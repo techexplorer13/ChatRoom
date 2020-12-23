@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginregService } from 'src/app/services/loginreg.service';
-import {map} from 'rxjs/operators';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isLoginFailed:boolean=false
 
-  constructor(public navCtrl: NavController,public regService:LoginregService) {
+  constructor(public navCtrl: NavController,public regService:LoginregService,private localStorage:LocalStorageService) {
     this.loginForm = new FormGroup({
       username: new FormControl('',Validators.required),
       password: new FormControl('',Validators.required)
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.regService.login(this.loginForm.value).subscribe(res=>{
       if(res.access_token){
         this.isLoginFailed=false;
-        localStorage.setItem('access_token',res.access_token)
+        this.localStorage.set('access_token',res.access_token)
         this.navCtrl.navigateForward('home')
       }
       else{
