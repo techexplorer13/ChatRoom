@@ -20,6 +20,10 @@ export class AuthGuard implements CanActivate {
     if (this.localStorage.get('access_token')) {
       return this.authService.authToken().pipe(map(
         res => {
+          /**
+           * if token is valid navigate to home
+           * or else proceed to login page 
+           */
           if (res == "Valid") {
             this.navCntrl.navigateForward('home')
             return false;

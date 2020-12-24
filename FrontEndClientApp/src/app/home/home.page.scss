@@ -1,27 +1,26 @@
-#container {
-  text-align: center;
 
+.header-container{
+  height: 7%;
+  display: flex;
+  justify-content:flex-start;
+  padding: 2px;
+}
+
+img{
+  width: 42px;
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  padding: 5px;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.searchBar{
+  padding-left: 12%;
+  width: 126px;
+  transition-delay: 0.3s;
+  transition-duration: 0.5s;
+  border-radius: 39px;
+  border: 1px solid grey;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+.searchBar:focus{
+  width: 100%;
 }
