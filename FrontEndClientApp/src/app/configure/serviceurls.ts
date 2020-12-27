@@ -1,4 +1,4 @@
 export class Urls{
-     public static video_search_url:string='';//"https://bing-video-search1.p.rapidapi.com/videos/search?q=";
-     public static trending_video_url:string=''//"https://bing-video-search1.p.rapidapi.com/videos/trending";
+     public static imdb_search_url:string='https://imdb8.p.rapidapi.com/title/auto-complete?q=';
+     public static imdb_upcoming_tv_shows:string=''//https://imdb8.p.rapidapi.com/title/get-coming-soon-tv-shows';
 }   

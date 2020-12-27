@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { debounceTime, switchMap } from 'rxjs/operators';
 import { DataService } from '../services/data.service';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -12,43 +11,39 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class HomePage {
 
-  searchField: FormControl;
+  searchValue: any;
   searchForm: FormGroup;
 
   searchresult: any;
-  trendingVideosResult: any
+  searchField: FormControl;
+  trending: any
 
 
   selectedCat: any;
 
-  constructor(private fb: FormBuilder, private dtservice: DataService, private sanitizer: DomSanitizer) {
+  constructor(private fb: FormBuilder,private dtservice: DataService) {
     this.searchField = new FormControl();
     this.searchForm = fb.group({ search: this.searchField });
 
 
-    this.searchField.valueChanges.pipe(switchMap((value: string) => {
-      if (value.length > 2) { return this.dtservice.getVideos(value) }
+    this.searchField.valueChanges.pipe(debounceTime(5000),switchMap((value: string) => {
+      if (value.length > 2) { 
+        console.log("hi")
+        return this.dtservice.getSearchData(value) }
       else {
         new Observable
       }
     })).subscribe(result => {
+      console.log(result)
       this.searchresult = result;
     })
   }
 
   ngOnInit() {
-    this.dtservice.getTrendingVideos().subscribe(res => {
-      this.trendingVideosResult = res
+    this.dtservice.getTrendingShows().subscribe(res => {
+      this.trending = res
     })
-
-    document.getElementById('searchicon').addEventListener("click",function(){
-      document.getElementById('searchBar').style.width='200px'
-    })
-  }
-
-  showSection(event) {
-    this.selectedCat = this.trendingVideosResult.categories.filter(cat => cat.title == event.target.value)
-    console.log(this.selectedCat)
+     
   }
 
 }
