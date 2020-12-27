@@ -1,8 +1,9 @@
-<ion-header class="header-container">
-    <form [formGroup]="searchForm" clickOutside>
+<ion-header class="header-container" clickOutside>
+    <form [formGroup]="searchForm">
         <input type="text"   onfocus="this.value=''" formControlName="search" id="searchBar">
     </form>
-    <img id="searchicon" src="assets/icon/searchicon.png" clickOutside />
+    <img id="searchicon" src="assets/icon/searchicon.png"/>
+    <img id="logoicon" src="assets/icon/hbo.png"/>
 </ion-header>
 <ion-content [fullscreen]="true">
 

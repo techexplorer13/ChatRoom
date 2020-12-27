@@ -12,12 +12,12 @@ export class ClickoutsideDirective {
   public click(target) {
    
     const clickedInside = this.el.nativeElement.contains(target);
-    console.log(clickedInside)
-    if (!clickedInside) {
-      document.getElementById('searchBar').style.width="42px"
+    if (clickedInside) {
+      document.getElementById('searchBar').style.width="200px"
     }
     else{
-      document.getElementById('searchBar').style.width="200px"
+      document.getElementById('searchBar').style.width="42px";
+      (<HTMLInputElement>document.getElementById('searchBar')).value='';
     }
   }
 }

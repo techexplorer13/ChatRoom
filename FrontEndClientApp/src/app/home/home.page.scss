@@ -18,10 +18,13 @@
 #searchBar{
     padding-left: 21%;
     width: 50px;
-    transition-delay: 0.3s;
-    transition-duration: 0.5s;
+    transition-duration: 0.2s;
     border-radius: 39px;
-    border: 1px solid grey;
+    border:2px solid cadetblue;
     height: 100%;
 }
 
+#logoicon{
+  margin-left: auto;
+  height: 100%;
+}
