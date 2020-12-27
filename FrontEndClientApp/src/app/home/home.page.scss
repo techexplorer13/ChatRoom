@@ -3,24 +3,25 @@
   height: 7%;
   display: flex;
   justify-content:flex-start;
-  padding: 2px;
-}
-
-img{
-  width: 42px;
-  position: absolute;
   padding: 5px;
+
 }
 
-.searchBar{
-  padding-left: 12%;
-  width: 126px;
-  transition-delay: 0.3s;
-  transition-duration: 0.5s;
-  border-radius: 39px;
-  border: 1px solid grey;
+#searchicon{
+  width: 30px;
+  position: absolute;
+  padding: 2px;
+  padding-top: 6px;
+  padding-left: 5px;
 }
 
-.searchBar:focus{
-  width: 100%;
+#searchBar{
+    padding-left: 21%;
+    width: 50px;
+    transition-delay: 0.3s;
+    transition-duration: 0.5s;
+    border-radius: 39px;
+    border: 1px solid grey;
+    height: 100%;
 }
+
