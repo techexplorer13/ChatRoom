@@ -1,0 +1,21 @@
+<ion-header class="header-container" clickOutside>
+  <form [formGroup]="searchForm">
+      <input type="text" onfocus="this.value=''" formControlName="search" id="searchBar">
+  </form>
+  <img id="searchicon" src="assets/icon/searchicon.png" />
+  <img id="logoicon" src="assets/icon/hbo.png" />
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ng-template [ngIf]="searchresult">
+      <ion-card *ngFor="let show of searchresult">
+          <ion-card-header>
+              <ion-card-subtitle>{{show.q}}</ion-card-subtitle>
+              <ion-card-title>{{show.l}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+              <ion-img [src]="show.i.imageUrl"></ion-img>
+              <ion-label style="font-family: inherit;">Cast : {{show.s}}</ion-label>
+          </ion-card-content>
+      </ion-card>
+  </ng-template>
+</ion-content>

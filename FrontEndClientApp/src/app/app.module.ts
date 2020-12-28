@@ -7,19 +7,15 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { LoginRegComponent } from './registration/reg.component';
-import { LoginComponent } from './registration/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import {NavbarComponent} from './navbar/navbar.component'
 
 @NgModule({
-  declarations: [AppComponent, LoginRegComponent, LoginComponent],
+  declarations: [AppComponent,NavbarComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
-    CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [BrowserModule, IonicModule.forRoot(),HttpClientModule,CommonModule,AppRoutingModule],
   providers: [
     StatusBar,
     SplashScreen,

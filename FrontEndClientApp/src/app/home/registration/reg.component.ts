@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular'
-import { LoginregService } from '../services/loginreg.service';
+import { LoginregService } from 'src/app/services/loginreg.service';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -27,7 +27,7 @@ export class LoginRegComponent implements OnInit {
 
 
   navigateToLogin() {
-    this.navCtrl.navigateForward('reglogin/login')
+    this.navCtrl.navigateForward('home/accountinfo/login')
   }
 
   onSubmit(){
@@ -47,7 +47,7 @@ export class LoginRegComponent implements OnInit {
 
     alert.present();
     alert.onDidDismiss().then(()=>{
-      this.navCtrl.navigateForward('reglogin/login')
+      this.navCtrl.navigateForward('home/accountinfo/login')
     })
   }
 }
