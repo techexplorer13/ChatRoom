@@ -4,6 +4,8 @@ import { LoginRegComponent } from './registration/reg.component';
 import { LoginComponent } from './registration/login/login.component';
 import { AuthGuard } from 'src/app/guard/auth.guard';
 import { MainComponent } from './main/main.component';
+import { MoviesComponent } from './movies/movies.component';
+import { TvshowsComponent } from './tvshows/tvshows.component';
 
 
 const routes: Routes = [
@@ -27,6 +29,14 @@ const routes: Routes = [
     path: 'main',
     component: MainComponent
   },
+  {
+    path: 'movies',
+    component: MoviesComponent
+  },
+  {
+    path: 'tvshows',
+    component: TvshowsComponent
+  }
 
 ];
 
