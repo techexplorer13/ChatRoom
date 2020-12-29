@@ -13,8 +13,7 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: LoginregService, private navCntrl: NavController, private localStorage: LocalStorageService) { }
 
 
-  canActivate(next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> {
+  canActivate(next: ActivatedRouteSnapshot,state: RouterStateSnapshot): Observable<boolean> {
 
 
     if (this.localStorage.get('access_token')) {

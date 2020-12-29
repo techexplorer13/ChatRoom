@@ -9,17 +9,19 @@ import { MainComponent } from './main/main.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo:'main',
-    pathMatch:'full'
+    redirectTo: 'main',
+    pathMatch: 'full'
   },
   {
     path: 'accountinfo',
     children: [{
       path: 'login',
-      canActivate:[AuthGuard],
+      canActivate: [AuthGuard],
       component: LoginComponent
+    }, {
+      path: '',
+      component: LoginRegComponent
     }],
-    component: LoginRegComponent
   },
   {
     path: 'main',
@@ -32,4 +34,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomePageRoutingModule {}
+export class HomePageRoutingModule { }
