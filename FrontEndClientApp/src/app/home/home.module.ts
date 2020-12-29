@@ -1,23 +1,24 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { DataService } from '../services/data.service';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
-import { ClickoutsideDirective } from '../directives/clickoutside.directive';
-
+import { MainComponent } from './main/main.component';
+import { LoginComponent } from 'src/app/home/registration/login/login.component';
+import { LoginRegComponent } from 'src/app/home/registration/reg.component'
+import { ClickoutsideDirective } from 'src/app/directives/clickoutside.directive';
+import { ReactiveFormsModule ,FormsModule} from '@angular/forms';
+import { CommonModule } from '@angular/common'
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
-  declarations:[ClickoutsideDirective,HomePage],
+  declarations: [HomePage, MainComponent,ClickoutsideDirective,LoginRegComponent, LoginComponent],
   imports: [
-    CommonModule,
-    IonicModule,
     HomePageRoutingModule,
+    CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    IonicModule
   ],
-  providers:[DataService]
+  providers: [DataService],
 })
-export class HomePageModule {}
+export class HomePageModule { }

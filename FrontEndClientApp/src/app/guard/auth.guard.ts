@@ -26,15 +26,19 @@ export class AuthGuard implements CanActivate {
            */
           if (res == "Valid") {
             this.navCntrl.navigateForward('home')
+            console.log("false 1")
             return false;
           } else {
+            console.log("true 1")
             return true;
           }
         }),catchError((e:any)=>{
+          console.log("true 2")
           return of(true)
         }));
     }
     else{
+      console.log("true 3")
       return of(true);
     }
   }

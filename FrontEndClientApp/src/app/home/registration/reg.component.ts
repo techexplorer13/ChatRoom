@@ -24,8 +24,7 @@ export class LoginRegComponent implements OnInit {
   ngOnInit() { 
    
   }
-
-
+  
   navigateToLogin() {
     this.navCtrl.navigateForward('home/accountinfo/login')
   }

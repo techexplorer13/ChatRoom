@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginRegComponent } from './registration/reg.component';
 import { LoginComponent } from './registration/login/login.component';
 import { AuthGuard } from 'src/app/guard/auth.guard';
-import { IonicModule } from '@ionic/angular';
 import { MainComponent } from './main/main.component';
+
 
 const routes: Routes = [
   {
@@ -30,7 +29,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes),ReactiveFormsModule,FormsModule,IonicModule],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class HomePageRoutingModule {}
