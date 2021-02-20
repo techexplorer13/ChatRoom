@@ -15,3 +15,7 @@ Content-Type: application/json
     "username":"arjshriv",
     "password":"coupdeate"
 }
+
+###
+GET http://localhost:3000/data/gethomelinks
+Content-Type: :application/json

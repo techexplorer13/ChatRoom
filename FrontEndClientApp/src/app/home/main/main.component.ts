@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
 import { debounceTime, switchMap } from 'rxjs/operators';
 import { DataService } from 'src/app/services/data.service';
+import { NewsmodalComponent } from './newsmodal/newsmodal.component';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
-export class MainComponent implements OnInit {
-
+export class MainComponent implements OnInit,OnDestroy {
   searchValue: any;
   searchForm: FormGroup;
 
@@ -18,22 +18,13 @@ export class MainComponent implements OnInit {
   searchField: FormControl;
   trending: any
 
+  latestnews: any = {};
 
-  test: any = [{
-    "i": { "height": "1500", "imageUrl": "https://m.media-amazon.com/images/M/MV5BODIyNzk5NDg5M15BMl5BanBnXkFtZTgwMTE5NjA5MjI@._V1_.jpg", "width": "1012" },
-    "id": "tt5071412",
-    "l": "Ozark",
-    "q": "TV series",
-    "s": "Jason Bateman, Laura Linney"
-  }, {
-    "i": { "height": "1500", "imageUrl": "https://m.media-amazon.com/images/M/MV5BMTI2MDE2MDA0M15BMl5BanBnXkFtZTcwOTM1MzU1MQ@@._V1_.jpg", "width": "1012" },
-    "id": "tt5071412",
-    "l": "Ozark",
-    "q": "TV series",
-    "s": "Jason Bateman, Laura Linney"
-  }];
+  slideIndex: any = 0;
+  interval=null;
+  spinnerVisible=null;
 
-  constructor(private fb: FormBuilder, private dtservice: DataService, private loadingCntrl: LoadingController) {
+  constructor(private modalCntrl: ModalController, private fb: FormBuilder, private dtservice: DataService, private loadingCntrl: LoadingController) {
     this.searchField = new FormControl();
     this.searchForm = fb.group({ search: this.searchField });
 
@@ -55,18 +46,68 @@ export class MainComponent implements OnInit {
     // this.searchresult=this.test
   }
 
+
+
   ngOnInit() {
+    this.presentLoading();
     this.dtservice.getTrendingShows().subscribe(res => {
-      this.trending = res
+      this.trending = res;
+      console.log(this.trending[0].shows)
+      this.interval=setInterval(() => this.slideshow(), 2000)
+
+    })
+  }
+
+  presentLoading() {
+    this.loadingCntrl.create({
+      spinner: "crescent",
+      message: "Please wait.."
+    }).then(val => {
+      val.present();
+      this.spinnerVisible=true;
+    })
+  }
+
+
+  openModal(item: any) {
+    this.modalCntrl.create({
+      component: NewsmodalComponent,
+      componentProps: {
+        'item': item
+      }
+    }).then((res) => {
+      res.present()
     })
 
   }
 
+  slideshow() {
+    let slides = document.getElementById('slides').children;
+    let dots = document.getElementById('dotslist').children;
 
-  presentLoading() {
-      this.loadingCntrl.create({ spinner: "bubbles" }).then(val=>{
-        val.present();
-      })
+    for (let i = 0; i < slides.length; i++) {
+      if (i === this.slideIndex) {
+        (<HTMLElement>slides[i]).style.display = "block";
+        (<HTMLElement>dots[i]).classList.add("active")
+      }
+      else {
+        (<HTMLElement>slides[i]).style.display = "none";
+        (<HTMLElement>dots[i]).classList.remove("active")
+      }
+    }
+    (<HTMLElement>document.querySelector('.sliderWindow')).style.display = 'flex';
+    this.slideIndex = this.slideIndex + 1;
+    if (this.slideIndex == slides.length) {
+      this.slideIndex = 0;
+    }
+    if(this.spinnerVisible){
+      this.loadingCntrl.dismiss()
+      this.spinnerVisible=false
+    }
   }
 
+  ngOnDestroy(){
+    clearInterval(this.interval)
+    this.slideIndex=0;
+  }
 }

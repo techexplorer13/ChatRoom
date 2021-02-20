@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancelModal()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-img [src]="item.image.url"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{item.head}}</ion-card-title>
+      <ion-card-subtitle> Publish Date :- {{item.publishDateTime}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{item.body}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -9,9 +9,10 @@ import { ClickoutsideDirective } from 'src/app/directives/clickoutside.directive
 import { ReactiveFormsModule ,FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common'
 import { IonicModule } from '@ionic/angular';
+import { SearchComponent } from './main/search/search.component';
 
 @NgModule({
-  declarations: [HomePage, MainComponent,ClickoutsideDirective,LoginRegComponent, LoginComponent],
+  declarations: [HomePage, MainComponent,ClickoutsideDirective,LoginRegComponent, LoginComponent,SearchComponent],
   imports: [
     HomePageRoutingModule,
     CommonModule,

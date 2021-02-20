@@ -6,16 +6,18 @@
     <img id="logoicon" src="assets/icon/hbo.png" />
 </ion-header>
 <ion-content [fullscreen]="true">
-    <ng-template [ngIf]="searchresult">
-        <ion-card *ngFor="let show of searchresult" class="ion-no-padding">
-            <ion-card-content class="ion-no-padding">
-                <ion-img class="showimg" [src]="show.i.imageUrl"></ion-img>
-            </ion-card-content>
-            <ion-card-header>
-                <ion-card-subtitle>{{show.q}}</ion-card-subtitle>
-                <ion-card-title>{{show.l}}</ion-card-title>
-                <ion-label style="font-family: inherit;">Cast : {{show.s}}</ion-label>
-            </ion-card-header>
-        </ion-card>
-    </ng-template>
+    <div class="sliderWindow">
+        <div *ngIf="trending" id="slides">
+            <ng-container *ngFor="let show of trending[0].shows">
+                <div>
+                    <img [src]="show.img" />
+                </div>
+            </ng-container>
+        </div>
+        <div *ngIf="trending" class="dotslist" id="dotslist">
+            <ng-container *ngFor="let show of trending[0].shows">
+                <span class="dot"></span>
+            </ng-container>
+        </div>
+    </div>
 </ion-content>
