@@ -54,7 +54,7 @@ export class MainComponent implements OnInit,AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(){
-    setTimeout(()=>this.slideshow(),5000);
+    setTimeout(()=>this.slideshow(1),5000);
   }
 
   presentLoading() {
@@ -79,16 +79,21 @@ export class MainComponent implements OnInit,AfterViewInit, OnDestroy {
 
   }
 
-  slideshow() {
+  slideshow(widthMultiplier) {
     let slides = document.getElementById('slides').children;
     let dots = document.getElementById('dotslist').children;
-    let widthMultiplier = 1;
     this.interval=setInterval(()=>{
+      if(dots[widthMultiplier-1]){
+      dots[widthMultiplier-1].classList.remove('active');
+      }
+      dots[widthMultiplier].classList.add('active');
+
       this.slideLeft(slides,widthMultiplier*100);
       widthMultiplier+=1;
       if(widthMultiplier==slides.length){
-        clearInterval(this.interval)
-        this.slideshow();
+        clearInterval(this.interval) 
+        dots[widthMultiplier-1].classList.remove('active');
+        this.slideshow(0);
       }
     },3000);
   }
