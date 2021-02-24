@@ -40,7 +40,6 @@
 
  #slides{
    display: flex;
-   justify-content: center;
  }
 
  .dot {
@@ -60,10 +59,22 @@
 }
 
 .sliderWindow{
-  display: none;
   flex-direction: column;
+  display: flex;
 }
 
 .active {
   background-color: #717171;
+}
+
+.main{
+  margin: auto;
+  width: 50%;
+  overflow: hidden;
+}
+
+.slideimg{
+  min-width:100%;
+  text-align: center;
+  transition: 2s;
 }

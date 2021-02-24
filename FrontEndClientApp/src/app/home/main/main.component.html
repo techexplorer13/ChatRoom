@@ -6,18 +6,27 @@
     <img id="logoicon" src="assets/icon/hbo.png" />
 </ion-header>
 <ion-content [fullscreen]="true">
-    <div class="sliderWindow">
-        <div *ngIf="trending" id="slides">
-            <ng-container *ngFor="let show of trending[0].shows">
-                <div>
-                    <img [src]="show.img" />
+    <ng-container *ngIf="trending">
+        <div class="main">
+            <div class="sliderWindow">
+                <div id="slides">
+                    <ng-container *ngFor="let show of trending[0].shows">
+                        <div class="slideimg">
+                            <img [src]="show.img" />
+                        </div>
+                    </ng-container>
                 </div>
-            </ng-container>
+                <div class="dotslist" id="dotslist">
+                    <ng-container *ngFor="let show of trending[0].shows">
+                        <span class="dot"></span>
+                    </ng-container>
+                </div>
+            </div>
         </div>
-        <div *ngIf="trending" class="dotslist" id="dotslist">
-            <ng-container *ngFor="let show of trending[0].shows">
-                <span class="dot"></span>
-            </ng-container>
-        </div>
-    </div>
+        <ng-container *ngFor="let subsection of trending.slice(1,trending.length)">
+            <div>
+                <app-mainsubsection [subsection]="subsection"></app-mainsubsection>
+            </div>
+        </ng-container>
+    </ng-container>
 </ion-content>

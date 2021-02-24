@@ -8,5 +8,5 @@ const dataSchema= new mongoose.Schema({
  shows:[{link:String,img:String}]
 })
 
-var collectionName = 'shows_links_data'
+var collectionName = 'mediaGenericData'
 module.exports=mongoose.model(collectionName,dataSchema)

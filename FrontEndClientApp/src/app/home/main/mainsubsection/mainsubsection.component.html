@@ -1,0 +1,20 @@
+<ion-grid>
+  <ion-row class="ion-no-padding">
+    <ion-col class="ion-no-padding" size-md="8" offset-md="2">
+      <div>
+        <h5>{{subsection.title}}</h5>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-no-padding">
+    <ion-col class="ion-no-padding" size-md="8" offset-md="2">
+      <div class="showsImgSection">
+        <ng-container *ngFor="let shows of subsection.shows">
+          <div class="show">
+            <img class="subsectionimg" [src]="shows.img" />
+          </div>
+        </ng-container>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

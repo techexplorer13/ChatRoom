@@ -1,5 +1,5 @@
 const mongoose=require('mongoose')
-
+mongoose.pluralize(null);
 const userSchema= new mongoose.Schema({
  usrnm:{
      type:String,
@@ -15,4 +15,4 @@ const userSchema= new mongoose.Schema({
  }
 })
 
-module.exports=mongoose.model('cr_user',userSchema)
+module.exports=mongoose.model('mediauser',userSchema)

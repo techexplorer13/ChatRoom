@@ -10,9 +10,10 @@ import { ReactiveFormsModule ,FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common'
 import { IonicModule } from '@ionic/angular';
 import { SearchComponent } from './main/search/search.component';
+import { MainsubsectionComponent } from './main/mainsubsection/mainsubsection.component';
 
 @NgModule({
-  declarations: [HomePage, MainComponent,ClickoutsideDirective,LoginRegComponent, LoginComponent,SearchComponent],
+  declarations: [HomePage, MainComponent,ClickoutsideDirective,LoginRegComponent, LoginComponent,SearchComponent,MainsubsectionComponent],
   imports: [
     HomePageRoutingModule,
     CommonModule,

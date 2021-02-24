@@ -1,0 +1,23 @@
+
+
+.showsImgSection .show{
+    margin-right: 1%;
+    min-width: 41%;
+    max-width: 50%;
+}
+
+.showsImgSection{
+    display: flex;
+    overflow-x: auto;
+    max-width: 900px;
+    
+}
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+h5{
+    margin-top: 0px;
+}
