@@ -47,25 +47,33 @@ export class MainComponent implements OnInit,AfterViewInit, OnDestroy {
 
 
   ngOnInit() {
-    this.dtservice.getTrendingShows().subscribe(res => {
-      this.trending = res;
-      console.log(this.trending[0].shows)
-    })
+    this.callInit()
+    
   }
 
   ngAfterViewInit(){
-    setTimeout(()=>this.slideshow(1),2000);
+    setTimeout(()=>{this.slideshow(1)},2000);
   }
 
-  presentLoading() {
-    this.loadingCntrl.create({
+  async callInit() {
+  await this.loadingCntrl.create({
       spinner: "crescent",
       message: "Please wait.."
     }).then(val => {
       val.present();
     })
+
+    this.fetchInitData();
   }
 
+
+  private fetchInitData() {
+    this.dtservice.getTrendingShows().subscribe(res => {
+      this.trending = res;
+      console.log(this.trending[0].shows);
+      this.loadingCntrl.dismiss();
+    });
+  }
 
   openModal(item: any) {
     this.modalCntrl.create({
