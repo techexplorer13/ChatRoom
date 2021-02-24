@@ -54,7 +54,7 @@ export class MainComponent implements OnInit,AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(){
-    setTimeout(()=>this.slideshow(1),5000);
+    setTimeout(()=>this.slideshow(1),2000);
   }
 
   presentLoading() {
