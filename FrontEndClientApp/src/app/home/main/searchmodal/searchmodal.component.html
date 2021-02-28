@@ -1,0 +1,9 @@
+<ion-header>
+  <ion-icon (click)="popModalOut()" name="arrow-back" size="large"></ion-icon>
+</ion-header>
+<ion-content>
+  <form [formGroup]="searchForm">
+    <ion-searchbar type="text" formControlName="search" placeholder="Search videos,movies"></ion-searchbar>
+  </form>
+  <searchresults [searchresult]="searchresult"></searchresults>
+</ion-content>

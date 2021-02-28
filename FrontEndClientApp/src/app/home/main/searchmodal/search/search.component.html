@@ -1,0 +1,8 @@
+<ion-grid>
+  <ng-container *ngFor="let result of searchresult">
+    <ion-row style="background-color: black;">
+      <ion-col size=2 class=ion-align-self-center><ion-thumbnail size=1><img [src]="result.srchimg"/></ion-thumbnail></ion-col>
+      <ion-col size=4 class=ion-align-self-center><div style="color: white;">{{result.title}}</div></ion-col>
+    </ion-row>
+  </ng-container>
+</ion-grid>

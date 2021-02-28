@@ -11,7 +11,7 @@ const authenticate=function authenticateToken(res, req, next) {
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, jwtUserJson) => {
         if (err) return res.sendStatus(403)
         req.user = jwtUserJson
-        return res.json("Valid")
+        return res.status(200).json({user:jwtUserJson})
     })
 }
 

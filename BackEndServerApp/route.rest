@@ -19,3 +19,18 @@ Content-Type: application/json
 ###
 GET http://localhost:3000/data/gethomelinks
 Content-Type: :application/json
+
+###
+POST http://localhost:3000/data/getAllMatchingShows
+Content-Type: application/json
+
+{
+    "searchtxt":"money"
+}
+
+###
+POST http://localhost:3000/users/getUserAuthentication
+Content-Type: application/json
+
+{"authorization":"Bearer eyJhbGciOiJIUzI1NiInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdCIsImlhdCI6MTYwODcyODA4M30.ibYftnl2Weq7AuKB3ptP9Pu4k2Y_VNkbI8qA7YheO4k"}
+
