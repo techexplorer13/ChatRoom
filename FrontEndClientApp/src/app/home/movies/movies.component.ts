@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
+import { UtilityService } from 'src/app/services/utility.service';
 
 @Component({
   selector: 'app-movies',
@@ -6,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movies.component.scss'],
 })
 export class MoviesComponent implements OnInit {
+  movies:any
+  constructor(private dtservice:DataService,private util:UtilityService) { }
 
-  constructor() { }
+  ngOnInit() {
+    this.callInit();
+  }
 
-  ngOnInit() {}
+
+  async callInit() {
+    await this.util.presentLoader();
+    this.dtservice.getTredingMovies().subscribe(res=>{
+      this.movies=res[0];
+      this.util.dismiss()
+    })
+  }
 
 }

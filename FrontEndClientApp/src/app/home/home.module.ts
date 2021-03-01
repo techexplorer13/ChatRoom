@@ -12,10 +12,11 @@ import { IonicModule } from '@ionic/angular';
 import { SearchComponent } from './main/searchmodal/search/search.component'
 import { MainsubsectionComponent } from './main/mainsubsection/mainsubsection.component';
 import {SearchmodalComponent} from './main/searchmodal/searchmodal.component';
+import { MoviesComponent } from './movies/movies.component';
 
 
 @NgModule({
-  declarations: [HomePage, MainComponent,SearchmodalComponent,ClickoutsideDirective,LoginRegComponent, LoginComponent,SearchComponent,MainsubsectionComponent],
+  declarations: [MoviesComponent,HomePage, MainComponent,SearchmodalComponent,ClickoutsideDirective,LoginRegComponent, LoginComponent,SearchComponent,MainsubsectionComponent],
   imports: [
     HomePageRoutingModule,
     CommonModule,

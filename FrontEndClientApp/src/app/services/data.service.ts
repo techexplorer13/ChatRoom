@@ -22,4 +22,8 @@ export class DataService {
   genericSearch(srctxt):Observable<any>{
     return this.http.post(Urls.searchApi,{"searchtxt":srctxt});
   }
+
+  getTredingMovies():Observable<any>{
+    return this.http.get(Urls.trending_movies);
+  }
 }
