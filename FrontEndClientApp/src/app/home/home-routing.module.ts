@@ -6,6 +6,8 @@ import { AuthGuard } from 'src/app/guard/auth.guard';
 import { MainComponent } from './main/main.component';
 import { MoviesComponent } from './movies/movies.component';
 import { TvshowsComponent } from './tvshows/tvshows.component';
+import { SessionactiveGuard } from '../guard/sessionactive.guard';
+import {LogoutComponent} from './registration/logout/logout.component';
 
 
 const routes: Routes = [
@@ -18,11 +20,14 @@ const routes: Routes = [
     path: 'accountinfo',
     children: [{
       path: 'login',
-      canActivate: [AuthGuard],
       component: LoginComponent
     }, {
       path: '',
+      canActivate: [AuthGuard],
       component: LoginRegComponent
+    }, {
+      path: 'logout',
+      component: LogoutComponent
     }],
   },
   {

@@ -1,11 +1,15 @@
 <div class="header">
   <ng-container *ngIf="movies">
-    <img [src]="movies.shows[0].img" />
+    <div class="backgroundDiv">
+      <ng-container *ngFor="let singlemovie of movies.shows">
+        <img class="backgroundimg" [src]="movies.shows[0].img" />
+      </ng-container>
+    </div>
     <div class="movieicons">
       <ng-container *ngFor="let singlemovie of movies.shows.slice(1,movies.shows.length)">
-        <div class="singleicondiv">
+        <ion-thumbnail class="singleicondiv">
           <img class="singleicon" [src]="singlemovie.img" />
-        </div>
+        </ion-thumbnail>
       </ng-container>
     </div>
   </ng-container>

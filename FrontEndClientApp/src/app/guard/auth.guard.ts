@@ -24,7 +24,7 @@ export class AuthGuard implements CanActivate {
            */
           if (res.user) {
             this.sharedService.username.next(res.user.name);
-            this.navCntrl.navigateForward(['home/main'])
+            this.navCntrl.navigateForward('home/accountinfo/logout')
             return false;
           } else {
             this.sharedService.username.next('Guest');
